@@ -90,7 +90,10 @@ function createImages(arr) {
     .join("");
 }
 
+container.addEventListener("click", handleClick);
+
 function handleClick(event) {
+  event.preventDefault();
   if (event.target === event.currentTarget) {
     return;
   }
@@ -100,7 +103,7 @@ function handleClick(event) {
       return;
     }
 
-    const imageUrl = event.target.dataset.source;
+    const largeImageUrl = event.target.dataset.source;
 
     const instance = basicLightbox.create(`
       <img src="${largeImageUrl}">
